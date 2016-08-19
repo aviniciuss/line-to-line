@@ -1,10 +1,12 @@
 import readline from 'readline';
 import { EventEmitter } from 'events';
+import Stream from 'stream';
 
 export class LineToLine extends EventEmitter {
   constructor(stream) {
     super();
-    if(!stream) {  throw new Error('Param stream invalid!'); }
+    if(!stream) {  throw new Error('Constructor parameter is mandatory'); }
+    if(!(stream instanceof Stream.Readable)) { throw new Error('Constructor parameter must be a stream'); }
     this._input = stream;
     this._initialize();
   }

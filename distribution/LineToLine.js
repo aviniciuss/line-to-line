@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.LineToLine = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _readline = require('readline');
@@ -14,6 +12,10 @@ var _readline = require('readline');
 var _readline2 = _interopRequireDefault(_readline);
 
 var _events = require('events');
+
+var _stream = require('stream');
+
+var _stream2 = _interopRequireDefault(_stream);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,8 +33,11 @@ var LineToLine = exports.LineToLine = function (_EventEmitter) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LineToLine).call(this));
 
-    if ((typeof stream === 'undefined' ? 'undefined' : _typeof(stream)) !== 'object') {
-      throw new Error('Param stream invalid!');
+    if (!stream) {
+      throw new Error('Constructor parameter is mandatory');
+    }
+    if (!(stream instanceof _stream2.default.Readable)) {
+      throw new Error('Constructor parameter must be a stream');
     }
     _this._input = stream;
     _this._initialize();
