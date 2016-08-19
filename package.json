@@ -13,13 +13,8 @@
         "url": "git+https://github.com/seusoft/line-to-line.git"
     },
     "keywords": [
-        "line",
-        "by",
-        "line",
-        "readline",
-        "line",
-        "to",
-        "line"
+        "line to line",
+        "readline"
     ],
     "author": "Anderson Vinicius avincius.adorno@gmail.com",
     "license": "MIT",
