@@ -19,9 +19,9 @@ $ npm test
 - stream - Stream object.
 
 ## Events
-- `line` emit line line of the file.
+- `line` emit line of the file.
 
-- `close` emit close stream.
+- `close` emit close of stream.
 
 - `error` emit error of stream.
 
